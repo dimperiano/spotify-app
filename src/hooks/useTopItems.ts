@@ -11,7 +11,6 @@ const fetchTopItems = async (type: 'artists' | 'tracks', timeRange: 'short_term'
   
   const accessToken = tokenResponse.data.access_token;
 
-  console.log("accessToken",accessToken)
   if (!accessToken) {
     throw new Error('Access token is missing');
   }

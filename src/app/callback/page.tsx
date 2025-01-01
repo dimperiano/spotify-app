@@ -15,7 +15,6 @@ const CallbackPage = () => {
         .get(`/api/auth?action=callback&code=${code}`)
         .then((response) => {
           console.log('Tokens:', response.data);
-          // Salve os tokens no localStorage ou use um estado global
           router.push('/');
         })
         .catch((error) => {

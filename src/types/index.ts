@@ -47,3 +47,22 @@ uri: string;
 export type ArtistResponse = {
 items: Artist[];
 };
+
+
+export type Album = {
+    id: string;
+    name: string;
+    release_date: string;
+    images: { url: string; width: number; height: number }[];
+    total_tracks: number;
+    album_type: string;
+    artists: { id: string; name: string }[];
+    external_urls: { spotify: string };
+  }
+  
+export type AlbumsResponse = {
+    items: Album[];
+    total: number;
+    next: string | null;
+    previous: string | null;
+  }
