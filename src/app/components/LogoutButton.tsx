@@ -1,9 +1,18 @@
-'use client';
+'use client'
 
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
-import axios from 'axios';
+import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  IconButton,
+} from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close'
+import axios from 'axios'
 
 const LogoutButton = () => {
   const [open, setOpen] = useState(false);
@@ -25,22 +34,41 @@ const LogoutButton = () => {
 
   return (
     <>
-      <Button className='!font-rubik !bg-accent-green-10 !leading-6 w-[113px] hover:opacity-85 h-[42px] !font-semibold !rounded-3xl flex items-center justify-center !text-neutral-black-20' onClick={handleOpen}>
+      <Button
+        className='!font-rubik !bg-accent-green-10 !leading-6 w-[113px] hover:opacity-85 h-[42px] !font-semibold !rounded-3xl flex items-center justify-center !text-neutral-black-20'
+        onClick={handleOpen}
+      >
         Sair
       </Button>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Confirmação de Logout</DialogTitle>
+        <DialogTitle>
+          Tem certeza de que deseja sair?
+          <IconButton
+            aria-label="close"
+            onClick={handleClose}
+            sx={{
+              position: 'absolute',
+              right: 6,
+              top: 6,
+              color: (theme) => theme.palette.grey[500],
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+        </DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Tem certeza de que deseja sair? Esta ação irá desconectar você da sua conta.
+            Você será desconectado da sua conta.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Cancelar
-          </Button>
-          <Button onClick={handleLogout} color="error">
-            Confirmar
+          <Button
+            onClick={handleLogout}
+            variant="contained"
+            color="primary"
+            className='!rounded-3xl !font-semibold !mx-auto'
+          >
+            Sair
           </Button>
         </DialogActions>
       </Dialog>
