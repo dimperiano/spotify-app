@@ -25,7 +25,7 @@ const LogoutButton = () => {
 
   return (
     <>
-      <Button className='!bg-accent-green-10 w-[113px] hover:opacity-85 h-[42px] !font-bold !rounded-3xl !text-neutral-black-20' onClick={handleOpen}>
+      <Button className='!font-rubik !bg-accent-green-10 !leading-6 w-[113px] hover:opacity-85 h-[42px] !font-semibold !rounded-3xl flex items-center justify-center !text-neutral-black-20' onClick={handleOpen}>
         Sair
       </Button>
       <Dialog open={open} onClose={handleClose}>
