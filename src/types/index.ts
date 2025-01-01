@@ -21,3 +21,29 @@ export type Image = {
     height: number;
     width: number;
 }
+
+export type ExternalUrls = {
+    spotify: string;
+  };
+  
+export type Followers = {
+href: string | null;
+total: number;
+};
+
+export type Artist = {
+external_urls: ExternalUrls;
+followers: Followers;
+genres: string[];
+href: string;
+id: string;
+images: Image[];
+name: string;
+popularity: number;
+type: "artist";
+uri: string;
+};
+
+export type ArtistResponse = {
+items: Artist[];
+};

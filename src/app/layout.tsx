@@ -1,15 +1,16 @@
-import './globals.css'; // Importação do Tailwind CSS ou estilos globais
-import { ReactNode } from 'react';
+'use client'
 
-export const metadata = {
-  title: 'Spotify Authentication',
-  description: 'App with Spotify authentication',
-};
+import { QueryClientProvider } from 'react-query';
+import './globals.css';
+import { ReactNode } from 'react';
+import { queryClient } from '@/services/queryClient';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
+      <QueryClientProvider client={queryClient}>
       <body className="bg-gray-100 text-gray-900">{children}</body>
+      </QueryClientProvider>
     </html>
   );
 }

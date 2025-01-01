@@ -1,6 +1,6 @@
 'use client';
 
-const HomePage = () => {
+const AuthPage = () => {
   const handleLogin = () => {
     window.location.href = '/api/auth?action=login';
   };
@@ -17,4 +17,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default AuthPage;

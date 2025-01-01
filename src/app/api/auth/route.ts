@@ -11,7 +11,7 @@ export async function GET(req: NextRequest) {
   const code = searchParams.get('code');
 
   if (action === 'login') {
-    const scope = 'user-read-private user-read-email';
+    const scope = 'user-top-read';
     const authUrl = `https://accounts.spotify.com/authorize?response_type=code&client_id=${SPOTIFY_CLIENT_ID}&scope=${encodeURIComponent(
       scope
     )}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}`;
@@ -37,9 +37,38 @@ export async function GET(req: NextRequest) {
         }
       );
 
+      console.log("response.data", response.data)
       const { access_token, refresh_token, expires_in } = response.data;
-      return NextResponse.json({ access_token, refresh_token, expires_in });
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
+
+      const expirationDate = Date.now() + expires_in * 1000;
+
+
+      const isProduction = process.env.NODE_ENV === 'production';
+      const maxAgeInSeconds = expires_in;
+
+      const responseWithCookies = NextResponse.json({ access_token, refresh_token, expires_in });
+      responseWithCookies.cookies.set('access_token', access_token, {
+        httpOnly: true,
+        secure: isProduction,
+        sameSite: 'strict',
+        maxAge: maxAgeInSeconds,
+      });
+      responseWithCookies.cookies.set('refresh_token', refresh_token, {
+        httpOnly: true,
+        secure: isProduction,
+        sameSite: 'strict',
+        maxAge: 60 * 60 * 24 * 30,
+      });
+      responseWithCookies.cookies.set('expires_in', expirationDate.toString(), {
+        httpOnly: true,
+        secure: isProduction,
+        sameSite: 'strict',
+        maxAge: maxAgeInSeconds,
+      });
+
+      return responseWithCookies;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any 
     } catch (error: any) {
       console.error('Error during token exchange:', error.response?.data || error.message);
       return NextResponse.json({ error: 'Failed to exchange token' }, { status: 500 });
