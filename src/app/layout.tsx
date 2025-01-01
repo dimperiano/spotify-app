@@ -9,7 +9,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <QueryClientProvider client={queryClient}>
-      <body className="bg-gray-100 text-gray-900">{children}</body>
+      <body className="text-neutral-white-0 bg-neutral-black-10">{children}</body>
       </QueryClientProvider>
     </html>
   );

@@ -8,9 +8,32 @@ export default {
   ],
   theme: {
     extend: {
+
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        neutral: {
+          black: {
+            '0': '#000000',
+            '10': '#090707',
+            '20': '#181414',
+          },
+          white: {
+            '0': '#ffffff',
+          },
+          gray: {
+            '10': '#949EA2',
+          },
+        },
+        accent: {
+          green: {
+            '10': '#57B660',
+          },
+
+
+
+
+          background: "var(--background)",
+          foreground: "var(--foreground)",
+        },
       },
     },
   },
