@@ -24,28 +24,28 @@ export type Image = {
 
 export type ExternalUrls = {
     spotify: string;
-  };
-  
+};
+
 export type Followers = {
-href: string | null;
-total: number;
+    href: string | null;
+    total: number;
 };
 
 export type Artist = {
-external_urls: ExternalUrls;
-followers: Followers;
-genres: string[];
-href: string;
-id: string;
-images: Image[];
-name: string;
-popularity: number;
-type: "artist";
-uri: string;
+    external_urls: ExternalUrls;
+    followers: Followers;
+    genres: string[];
+    href: string;
+    id: string;
+    images: Image[];
+    name: string;
+    popularity: number;
+    type: "artist";
+    uri: string;
 };
 
 export type ArtistResponse = {
-items: Artist[];
+    items: Artist[];
 };
 
 
@@ -58,11 +58,25 @@ export type Album = {
     album_type: string;
     artists: { id: string; name: string }[];
     external_urls: { spotify: string };
-  }
-  
+}
+
 export type AlbumsResponse = {
     items: Album[];
     total: number;
     next: string | null;
     previous: string | null;
-  }
+}
+
+
+export type Playlist = {
+    id: string;
+    name: string;
+    description: string;
+    images: { url: string }[];
+    tracks: { total: number };
+}
+
+export type PlaylistsResponse = {
+    items: Playlist[];
+    next?: string;
+}
