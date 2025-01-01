@@ -11,7 +11,7 @@ export async function GET(req: NextRequest) {
   const code = searchParams.get('code');
 
   if (action === 'login') {
-    const scope = 'user-top-read user-library-read user-read-email user-read-private';
+    const scope = 'user-top-read user-library-read user-read-email user-read-private playlist-modify-public playlist-modify-private';
     const authUrl = `https://accounts.spotify.com/authorize?response_type=code&client_id=${SPOTIFY_CLIENT_ID}&scope=${encodeURIComponent(
       scope
     )}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}`;
