@@ -12,7 +12,7 @@ import theme from '@/theme'
 const rubik = Rubik({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
-});
+})
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -21,12 +21,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <body className={`text-neutral-white-0 bg-neutral-black-10 ${rubik.className}`}>
-            <div className='flex w-full h-full'>
-              {children}
-            </div>
+            {children}
           </body>
         </ThemeProvider>
       </QueryClientProvider>
     </html>
-  );
+  )
 }

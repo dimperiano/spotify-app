@@ -1,20 +1,19 @@
 'use client'
 
-import React from 'react';
-import useUserProfile from '@/hooks/useUserProfile';
-import Image from 'next/image';
-import Link from 'next/link';
-import LogoutButton from '../../components/LogoutButton';
+import React from 'react'
+import useUserProfile from '@/hooks/useUserProfile'
+import Image from 'next/image'
+import Link from 'next/link'
+import LogoutButton from '../../components/LogoutButton'
 
 const UserProfile = () => {
-    const { data, isLoading, error } = useUserProfile();
-    const email = 'imperiano.cn@gmail.com';
-    const subject = 'Solicitação de acesso ao APP do spotify';
-    const body = 'Ola, gostaria de solicitar acesso ao app do spotify, segue meu email de cadastro: ';
+    const { data, isLoading, error } = useUserProfile()
+    const email = 'imperiano.cn@gmail.com'
+    const subject = 'Solicitação de acesso ao App do Spotify'
+    const body = 'Ola, gostaria de solicitar acesso ao app do Spotify, segue meu email de cadastro: '
+    const mailtoHref = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 
-    const mailtoHref = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    if (isLoading) return <p>Loading user profile...</p>;
+    if (isLoading) return <p>Loading user profile...</p>
     if (error) return (
         <div className='w-full h-screen flex justify-center items-center text-neutral-white-0 bg-neutral-black-10'>
             <div className='text-center max-w-3xl mx-auto'>
@@ -26,13 +25,12 @@ const UserProfile = () => {
     )
 
     return (
-        <div className='h-screen w-full flex items-center justify-center flex-col gap-6'>
-
+        <div className='bg-neutral-black-10 h-screen w-full flex items-center justify-center flex-col gap-6'>
             <Image className='rounded-[64px]' src={data?.images[0].url} alt={data?.display_name} width={128} height={128} />
             <h1 className='text-2xl leading-5 font-medium'>{data?.display_name}</h1>
             <LogoutButton />
         </div>
-    );
-};
+    )
+}
 
-export default UserProfile;
+export default UserProfile

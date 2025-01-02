@@ -1,11 +1,9 @@
-'use client';
+'use client'
 
 const HomePage = () => {
   return (
-    <div className="bg-black w-full h-full">
-     
-    </div>
-  );
-};
+    <div className="bg-neutral-black-10 w-full h-full" />  
+  )
+}
 
-export default HomePage;
+export default HomePage
