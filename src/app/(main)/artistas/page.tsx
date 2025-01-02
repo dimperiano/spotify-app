@@ -1,20 +1,29 @@
-'use client'
+"use client";
 
-import React from 'react'
-import useTopItems from '@/hooks/useTopItems'
-import Image from 'next/image'
-import Link from 'next/link'
-import { Artist } from '@/types'
+import React from "react";
+import useTopItems from "@/hooks/useTopItems";
+import Image from "next/image";
+import Link from "next/link";
+import { Artist } from "@/types";
 
 const TopArtists = () => {
-  const { data, isLoading, isError, error } = useTopItems('artists', 'medium_term', 10)
+  const { data, isLoading, isError, error } = useTopItems(
+    "artists",
+    "medium_term",
+    10,
+  );
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
 
   if (isError) {
-    return <div>Error: {error instanceof Error ? error.message : 'An unknown error occurred.'}</div>
+    return (
+      <div>
+        Error:{" "}
+        {error instanceof Error ? error.message : "An unknown error occurred."}
+      </div>
+    );
   }
 
   return (
@@ -23,10 +32,13 @@ const TopArtists = () => {
       <ul className="space-y-2">
         {data?.items.map((artist: Artist) => (
           <li key={artist.id} className="flex items-center gap-4">
-            <Link href={`/artistas/${artist.id}`} className="flex items-center gap-4 hover:underline">
+            <Link
+              href={`/artistas/${artist.id}`}
+              className="flex items-center gap-4 hover:underline"
+            >
               <Image
                 className="rounded-full object-cover"
-                src={artist.images[0]?.url || '/placeholder.jpg'}
+                src={artist.images[0]?.url || "/placeholder.jpg"}
                 alt={artist.name}
                 height={50}
                 width={50}
@@ -37,7 +49,7 @@ const TopArtists = () => {
         ))}
       </ul>
     </div>
-  )
-}
+  );
+};
 
 export default TopArtists;

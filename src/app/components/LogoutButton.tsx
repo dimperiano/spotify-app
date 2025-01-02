@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   Button,
   Dialog,
@@ -10,9 +10,9 @@ import {
   DialogContentText,
   DialogTitle,
   IconButton,
-} from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close'
-import axios from 'axios'
+} from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+import axios from "axios";
 
 const LogoutButton = () => {
   const [open, setOpen] = useState(false);
@@ -23,10 +23,10 @@ const LogoutButton = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.get('/api/logout');
-      router.push('/');
+      await axios.get("/api/logout");
+      router.push("/");
     } catch (error) {
-      console.error('Error during logout:', error);
+      console.error("Error during logout:", error);
     } finally {
       handleClose();
     }
@@ -35,7 +35,7 @@ const LogoutButton = () => {
   return (
     <>
       <Button
-        className='!font-rubik !bg-accent-green-10 !leading-6 w-[113px] hover:opacity-85 h-[42px] !font-semibold !rounded-3xl flex items-center justify-center !text-neutral-black-20'
+        className="!font-rubik !bg-accent-green-10 !leading-6 w-[113px] hover:opacity-85 h-[42px] !font-semibold !rounded-3xl flex items-center justify-center !text-neutral-black-20"
         onClick={handleOpen}
       >
         Sair
@@ -47,7 +47,7 @@ const LogoutButton = () => {
             aria-label="close"
             onClick={handleClose}
             sx={{
-              position: 'absolute',
+              position: "absolute",
               right: 6,
               top: 6,
               color: (theme) => theme.palette.grey[500],
@@ -66,7 +66,7 @@ const LogoutButton = () => {
             onClick={handleLogout}
             variant="contained"
             color="primary"
-            className='!rounded-3xl !font-semibold !mx-auto'
+            className="!rounded-3xl !font-semibold !mx-auto"
           >
             Sair
           </Button>

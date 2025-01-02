@@ -1,69 +1,83 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import useUserPlaylists from '@/hooks/useUserPlaylists'
-import Image from 'next/image'
-import { Playlist } from '@/types'
-import { useCreatePlaylist } from '@/hooks/useCreatePlaylist'
-import { Dialog, DialogActions, DialogContent, DialogTitle, Button, TextField } from '@mui/material'
+import React, { useState } from "react";
+import useUserPlaylists from "@/hooks/useUserPlaylists";
+import Image from "next/image";
+import { Playlist } from "@/types";
+import { useCreatePlaylist } from "@/hooks/useCreatePlaylist";
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Button,
+  TextField,
+} from "@mui/material";
 
 const UserPlaylists = () => {
-  const { mutate: createPlaylist } = useCreatePlaylist()
-  const { data, isLoading, error } = useUserPlaylists()
-  const [open, setOpen] = useState(false)
-  const [playlistName, setPlaylistName] = useState('')
+  const { mutate: createPlaylist } = useCreatePlaylist();
+  const { data, isLoading, error } = useUserPlaylists();
+  const [open, setOpen] = useState(false);
+  const [playlistName, setPlaylistName] = useState("");
 
   const handleClickOpen = () => {
-    setOpen(true)
-  }
+    setOpen(true);
+  };
 
   const handleClose = () => {
-    setOpen(false)
-  }
+    setOpen(false);
+  };
 
   const handleCreatePlaylist = () => {
     createPlaylist(
       {
         name: playlistName,
-        description: '',
+        description: "",
         public: false,
       },
       {
         onSuccess: () => {
-          handleClose()
+          handleClose();
         },
       },
-    )
+    );
+  };
 
-  }
-
-  if (isLoading) return <p>Loading playlists...</p>
-  if (error) return <p>Error: erro</p>
+  if (isLoading) return <p>Loading playlists...</p>;
+  if (error) return <p>Error: erro</p>;
 
   return (
-    <div className='bg-neutral-black-10'>
+    <div className="bg-neutral-black-10">
       <h1>Your Playlists</h1>
-
 
       <Button
         variant="contained"
         color="primary"
         onClick={handleClickOpen}
         style={{
-          position: 'absolute',
-          top: '20px',
-          right: '20px',
+          position: "absolute",
+          top: "20px",
+          right: "20px",
         }}
       >
         Criar Playlist
       </Button>
 
       {data?.items.map((playlist: Playlist) => (
-        <div key={playlist.id} className='flex items-center gap-4'>
-          {playlist.images[0] && <Image height={50} width={50} src={playlist.images[0].url} alt={playlist.name} />}
+        <div key={playlist.id} className="flex items-center gap-4">
+          {playlist.images[0] && (
+            <Image
+              height={50}
+              width={50}
+              src={playlist.images[0].url}
+              alt={playlist.name}
+            />
+          )}
           <div>
             <h2>{playlist.name}</h2>
-            <p>{!!playlist.description ? playlist.description : 'Sem etiqueta'}</p>
+            <p>
+              {!!playlist.description ? playlist.description : "Sem etiqueta"}
+            </p>
           </div>
         </div>
       ))}
@@ -93,7 +107,7 @@ const UserPlaylists = () => {
         </DialogActions>
       </Dialog>
     </div>
-  )
-}
+  );
+};
 
-export default UserPlaylists
+export default UserPlaylists;
