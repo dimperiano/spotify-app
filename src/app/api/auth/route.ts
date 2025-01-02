@@ -37,17 +37,12 @@ export async function GET(req: NextRequest) {
         }
       );
 
-      console.log("response.data", response.data)
       const { access_token, refresh_token, expires_in } = response.data;
-
-
       const expirationDate = Date.now() + expires_in * 1000;
-
-
       const isProduction = process.env.NODE_ENV === 'production';
       const maxAgeInSeconds = expires_in;
-
       const responseWithCookies = NextResponse.json({ access_token, refresh_token, expires_in });
+      
       responseWithCookies.cookies.set('access_token', access_token, {
         httpOnly: true,
         secure: isProduction,

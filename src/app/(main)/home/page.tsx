@@ -2,7 +2,7 @@
 
 const HomePage = () => {
   return (
-    <div className="bg-black">
+    <div className="bg-black w-full h-full">
      
     </div>
   );

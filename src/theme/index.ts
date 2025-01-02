@@ -27,6 +27,21 @@ const theme = createTheme({
         },
       },
     },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: '24px',
+          padding: '11px 40px',
+          backgroundColor: '#57B660',
+          color: '#181414',
+          fontWeight: 700,
+          fontSize: '16px',
+          textTransform: 'capitalize',
+          lineHeight: '20px',
+          letterSpacing: '1%',
+        },
+      },
+    }
   },
 });
 

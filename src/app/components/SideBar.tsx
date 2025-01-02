@@ -4,7 +4,7 @@ import SpotifyLogo from '@/assets/SpotifyLogo.png'
 
 export const Sidebar = () => {
     return (
-        <div className="flex flex-col justify-between h-full">
+        <div className="flex flex-col bg-neutral-black-0 justify-between h-full">
             <div className="flex gap-11 flex-col">
                 <Image unoptimized src={SpotifyLogo} alt="Spotify Logo" width={150} height={150} />
                 <div className="flex-col gap-6">

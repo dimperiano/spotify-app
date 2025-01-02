@@ -15,7 +15,7 @@ const CallbackPage = () => {
         .get(`/api/auth?action=callback&code=${code}`)
         .then((response) => {
           console.log('Tokens:', response.data);
-          router.push('/');
+          router.push('/home');
         })
         .catch((error) => {
           console.error('Error during authentication:', error);
