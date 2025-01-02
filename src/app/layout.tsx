@@ -8,6 +8,7 @@ import { Rubik } from '@next/font/google';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import theme from '@/theme';
+import { Sidebar } from './components/SideBar';
 
 const rubik = Rubik({
   subsets: ['latin'],
@@ -20,7 +21,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <QueryClientProvider client={queryClient}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <body className={`text-neutral-white-0 bg-neutral-black-10 ${rubik.className}`}>{children}</body>
+          <body className={`text-neutral-white-0 bg-neutral-black-10 ${rubik.className}`}>
+            <div className='flex'>
+              <Sidebar /> {children}</div></body>
         </ThemeProvider>
       </QueryClientProvider>
     </html>
