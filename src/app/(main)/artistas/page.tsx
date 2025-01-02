@@ -27,9 +27,12 @@ const TopArtists = () => {
   }
 
   return (
-    <div className="p-4 bg-neutral-black-10">
-      <h2 className="text-xl font-bold mb-4">Top Artistas</h2>
-      <ul className="space-y-2">
+    <div className="p-4 bg-neutral-black-10 w-full overflow-y-auto">
+      <div className="p-8">
+      <h1 className="text-[28px] font-semibold leading-8"> Top Artistas</h1>
+      <p className="text-neutral-gray-20">Aqui você encontra seus artistas preferidos</p>
+      </div>
+      <ul className="px-8 py-4 flex flex-col gap-4">
         {data?.items.map((artist: Artist) => (
           <li key={artist.id} className="flex items-center gap-4">
             <Link
@@ -37,13 +40,13 @@ const TopArtists = () => {
               className="flex items-center gap-4 hover:underline"
             >
               <Image
-                className="rounded-full object-cover"
+                className="rounded-full object-cover max-w-16 max-h-16 min-w-16 min-h-16 overflow-hidden"
                 src={artist.images[0]?.url || "/placeholder.jpg"}
                 alt={artist.name}
-                height={50}
-                width={50}
+                height={64}
+                width={64}
               />
-              <span className="text-lg font-medium">{artist.name}</span>
+              <span className="text-sm">{artist.name}</span>
             </Link>
           </li>
         ))}

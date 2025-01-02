@@ -21,6 +21,7 @@ export default {
           },
           gray: {
             "10": "#949EA2",
+            '20': '#D3DADD',
           },
         },
         accent: {

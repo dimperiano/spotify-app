@@ -47,8 +47,11 @@ const UserPlaylists = () => {
   if (error) return <p>Error: erro</p>;
 
   return (
-    <div className="bg-neutral-black-10">
-      <h1>Your Playlists</h1>
+    <div className=" bg-neutral-black-10 w-full">
+      <div className="p-8">
+      <h1 className="text-[28px] font-semibold leading-8"> Minhas Playlists</h1>
+      <p className="text-neutral-gray-20">Sua coleção pessoal de playlists</p>
+      </div>
 
       <Button
         variant="contained"
@@ -63,24 +66,26 @@ const UserPlaylists = () => {
         Criar Playlist
       </Button>
 
+      <ul className="px-8 py-4 flex flex-col gap-4">
       {data?.items.map((playlist: Playlist) => (
-        <div key={playlist.id} className="flex items-center gap-4">
+        <li key={playlist.id} className="flex items-center gap-4">
           {playlist.images[0] && (
             <Image
-              height={50}
-              width={50}
+              height={72}
+              width={72}
               src={playlist.images[0].url}
               alt={playlist.name}
             />
           )}
           <div>
-            <h2>{playlist.name}</h2>
-            <p>
+            <h2 className="text-sm">{playlist.name}</h2>
+            <p className="text-xs text-neutral-white-0 opacity-80">
               {!!playlist.description ? playlist.description : "Sem etiqueta"}
             </p>
           </div>
-        </div>
+        </li>
       ))}
+      </ul>
 
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Dê um nome a sua playlist</DialogTitle>
