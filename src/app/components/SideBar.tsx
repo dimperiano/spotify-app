@@ -5,8 +5,8 @@ import Link from "next/link";
 
 export const Sidebar = () => {
   return (
-    <div className="flex  w-full max-w-64 flex-col bg-neutral-black-0 justify-between h-screen pt-8 pb-3">
-      <div className="flex gap-11 flex-col">
+    <div className="flex w-full max-w-64 flex-col bg-neutral-black-0 justify-between h-screen pt-8 pb-3">
+      <div className="flex gap-11 flex-col h-full">
         <Image
           unoptimized
           src={SpotifyLogo}
@@ -15,7 +15,7 @@ export const Sidebar = () => {
           height={49}
           className="pl-7"
         />
-        <div className="flex-col flex pl-8 h-full gap-6">
+        <div className="flex-col flex pl-8 h-full flex-1 gap-6">
           <Link href={"/home"} className="flex gap-6 items-center">
             <Icons.home className="text-neutral-white-0" /> Home
           </Link>

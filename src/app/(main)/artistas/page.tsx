@@ -5,6 +5,7 @@ import useTopItems from "@/hooks/useTopItems";
 import Image from "next/image";
 import Link from "next/link";
 import { Artist } from "@/types";
+import { useArtist } from "@/context/ArtistContext";
 
 const TopArtists = () => {
   const { data, isLoading, isError, error } = useTopItems(
@@ -13,6 +14,7 @@ const TopArtists = () => {
     10,
   );
 
+  const { setArtist } = useArtist();
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -27,7 +29,7 @@ const TopArtists = () => {
   }
 
   return (
-    <div className="p-4 bg-neutral-black-10 w-full overflow-y-auto">
+    <div className="p-4 bg-neutral-black-10 w-full">
       <div className="p-8">
       <h1 className="text-[28px] font-semibold leading-8"> Top Artistas</h1>
       <p className="text-neutral-gray-20">Aqui você encontra seus artistas preferidos</p>
@@ -38,9 +40,10 @@ const TopArtists = () => {
             <Link
               href={`/artistas/${artist.id}`}
               className="flex items-center gap-4 hover:underline"
+              onClick={() => setArtist(artist.name, artist.images[0]?.url || "/placeholder.jpg")}
             >
               <Image
-                className="rounded-full object-cover max-w-16 max-h-16 min-w-16 min-h-16 overflow-hidden"
+                className="rounded-full object-cover max-w-16 max-h-16 min-w-16 min-h-16"
                 src={artist.images[0]?.url || "/placeholder.jpg"}
                 alt={artist.name}
                 height={64}

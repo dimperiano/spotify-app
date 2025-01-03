@@ -1,16 +1,22 @@
-"use client";
+"use client"
 
-import React from "react";
-import { useParams } from "next/navigation";
-import useArtistAlbums from "@/hooks/useArtistAlbums";
+import React from "react"
+import { useParams, useRouter } from "next/navigation"
+import useArtistAlbums from "@/hooks/useArtistAlbums"
 import Image from "next/image";
 import { Album } from "@/types";
+import { Icons } from "@/app/components/Icons"
+import { Button } from "@mui/material"
+import Placeholder from "@/assets/placeholder.svg"
+import { useArtist } from "@/context/ArtistContext";
 
 const ArtistAlbums = () => {
-  const params = useParams<{ id: string }>();
-  const artistId = params ? params.id : "";
+  const params = useParams<{ id: string }>()
+  const artistId = params ? params.id : ""
+  const router = useRouter()
+  const { data, isLoading, isError, error } = useArtistAlbums(artistId)
 
-  const { data, isLoading, isError, error } = useArtistAlbums(artistId);
+  const { artistName, artistImage } = useArtist()
 
   if (isLoading) {
     return <div>Loading albums...</div>;
@@ -26,13 +32,19 @@ const ArtistAlbums = () => {
   }
 
   return (
-    <div className="p-4 bg-neutral-black-10 w-full overflow-y-auto">
-      <h2 className="text-xl font-bold mb-4">voltar</h2>
-      <ul className="flex flex-col gap-4 overflow-y-auto">
+    <div className="p-8 h-full bg-neutral-black-10 w-full">
+      <div className="flex mb-12 items-center justify-between w-full ">
+        <Button variant="text" onClick={() => router.back()} className="flex !bg-transparent !text-neutral-white-0 !p-0 items-center gap-2">
+          <Icons.arrowBack />
+          <h2 className="text-xl font-bold"> {!!artistName ? artistName : 'Voltar'}</h2>
+        </Button>
+        {!!artistImage && <Image width={64} height={64} src={artistImage} alt={artistName || ''} className="rounded-full object-cover max-w-16 max-h-16 min-w-16 min-h-16" />}
+      </div>
+      <ul className="flex flex-col h-full gap-4 max-h-full">
         {data?.items.map((album: Album) => (
           <li key={album.id} className="flex items-center gap-2">
             <Image
-              src={album.images[0]?.url || "/placeholder.jpg"}
+              src={album.images[0]?.url || Placeholder}
               alt={album.name}
               height={72}
               width={72}
@@ -46,7 +58,7 @@ const ArtistAlbums = () => {
         ))}
       </ul>
     </div>
-  );
-};
+  )
+}
 
 export default ArtistAlbums;
