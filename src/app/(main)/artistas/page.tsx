@@ -29,7 +29,7 @@ const TopArtists = () => {
   }
 
   return (
-    <div className="p-4 bg-neutral-black-10 w-full">
+    <div className="p-4 w-full">
       <div className="p-8">
       <h1 className="text-[28px] font-semibold leading-8"> Top Artistas</h1>
       <p className="text-neutral-gray-20">Aqui você encontra seus artistas preferidos</p>

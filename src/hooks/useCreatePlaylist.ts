@@ -2,6 +2,7 @@
 
 import { useMutation } from "react-query";
 import axios from "axios";
+import { queryClient } from "@/services/queryClient";
 
 interface CreatePlaylistResponse {
   name: string;
@@ -47,8 +48,8 @@ const createPlaylist = async (payload: CreatePlaylistPayload) => {
 
 export const useCreatePlaylist = () => {
   return useMutation(createPlaylist, {
-    onSuccess: (data) => {
-      console.log("Playlist created successfully:", data);
+    onSuccess: () => {
+     queryClient.invalidateQueries("userPlaylists");
     },
     onError: (error) => {
       console.error("Error creating playlist:", error);

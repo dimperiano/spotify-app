@@ -44,13 +44,14 @@ const LogoutButton = () => {
         <DialogTitle>
           Tem certeza de que deseja sair?
           <IconButton
+          className="text-3xl !text-neutral-white-0"
             aria-label="close"
             onClick={handleClose}
             sx={{
               position: "absolute",
               right: 6,
               top: 6,
-              color: (theme) => theme.palette.grey[500],
+              color: (theme) => theme.palette.common.white,
             }}
           >
             <CloseIcon />

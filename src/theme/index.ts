@@ -24,6 +24,35 @@ const theme = createTheme({
           color: "#FFFFFF",
           borderRadius: "32px",
           padding: "24px 16px",
+          width: "100%",
+          maxWidth: "600px",
+        },
+      },
+    },
+    MuiInput: {
+      styleOverrides: {
+        input: {
+          textAlign: "center",
+        },
+        root: {
+          textAlign: "center",
+          color: "#FFFFFF",
+        },
+        underline: {
+          "&:focus": {
+            backgroundColor: "transparent",
+          },
+          "&:after": {
+            display: "none",
+            borderColor: "#FFFFFF33",
+          },
+          "&:before": {
+            borderColor: "#FFFFFF33",
+          },
+          "&:hover:not(.Mui-disabled):before": {
+            borderColor: "#FFFFFF33",
+            borderBottom: "1px solid #FFFFFF",
+          },
         },
       },
     },

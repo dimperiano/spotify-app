@@ -11,8 +11,11 @@ import {
   DialogContent,
   DialogTitle,
   Button,
-  TextField,
+  IconButton,
+  Input,
 } from "@mui/material";
+import Placeholder from "@/assets/placeholder.svg"
+import CloseIcon from "@mui/icons-material/Close"
 
 const UserPlaylists = () => {
   const { mutate: createPlaylist } = useCreatePlaylist();
@@ -33,7 +36,7 @@ const UserPlaylists = () => {
       {
         name: playlistName,
         description: "",
-        public: false,
+        public: true,
       },
       {
         onSuccess: () => {
@@ -47,7 +50,7 @@ const UserPlaylists = () => {
   if (error) return <p>Error: erro</p>;
 
   return (
-    <div className=" bg-neutral-black-10 w-full">
+    <div className="w-full">
       <div className="p-8">
       <h1 className="text-[28px] font-semibold leading-8"> Minhas Playlists</h1>
       <p className="text-neutral-gray-20">Sua coleção pessoal de playlists</p>
@@ -69,14 +72,14 @@ const UserPlaylists = () => {
       <ul className="px-8 py-4 flex flex-col gap-4">
       {data?.items.map((playlist: Playlist) => (
         <li key={playlist.id} className="flex items-center gap-4">
-          {playlist.images[0] && (
+          
             <Image
               height={72}
               width={72}
-              src={playlist.images[0].url}
+              src={Array.isArray(playlist.images) && playlist.images.length > 0  ? playlist?.images[0]?.url : Placeholder}
               alt={playlist.name}
+              className={(!Array.isArray(playlist.images) ? 'border border-neutral-gray-10 p-4' : '')}
             />
-          )}
           <div>
             <h2 className="text-sm">{playlist.name}</h2>
             <p className="text-xs text-neutral-white-0 opacity-80">
@@ -88,27 +91,39 @@ const UserPlaylists = () => {
       </ul>
 
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Dê um nome a sua playlist</DialogTitle>
+        <DialogTitle className="!text-sm !font-semibold !text-center !mt-16">Dê um nome a sua playlist</DialogTitle>
+        <IconButton
+            aria-label="close"
+            onClick={handleClose}
+            sx={{
+              position: "absolute",
+              right: 6,
+              top: 6,
+              color: (theme) => theme.palette.common.white,
+              
+            }}
+          >
+            <CloseIcon sx={{ width: 32, height: 32, strokeWidth: 1 }} />
+          </IconButton>
         <DialogContent>
-          <TextField
+        <Input
             autoFocus
             margin="dense"
             id="name"
-            label="As Melhores"
+            placeholder="As Melhores"
             type="text"
-            fullWidth
+            fullWidth={false}
             value={playlistName}
             onChange={(e) => setPlaylistName(e.target.value)}
-            variant="outlined"
+            className="!text-2xl !font-semibold !text-center !flex !justify-center"
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Cancelar
-          </Button>
-          <Button onClick={handleCreatePlaylist} color="primary">
+          <div className="flex justify-center w-full mt-16">
+          <Button className="!font-bold" onClick={handleCreatePlaylist} color="primary">
             Criar
           </Button>
+          </div>
         </DialogActions>
       </Dialog>
     </div>

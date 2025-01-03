@@ -17,7 +17,7 @@ const UserProfile = () => {
   if (isLoading) return <p>Loading user profile...</p>;
   if (error)
     return (
-      <div className="w-full flex justify-center items-center text-neutral-white-0 bg-neutral-black-10">
+      <div className="w-full flex justify-center h-full items-center text-neutral-white-0">
         <div className="text-center max-w-3xl mx-auto">
           <h1 className="text-2xl font-bold mb-4">
             Não foi possível carregar informações do usuário
@@ -57,7 +57,7 @@ const UserProfile = () => {
     );
 
   return (
-    <div className="bg-neutral-black-10 w-full flex items-center justify-center flex-col gap-6">
+    <div className="h-full w-full flex items-center justify-center flex-col gap-6">
       <Image
         className="rounded-[64px]"
         src={data?.images[0].url}

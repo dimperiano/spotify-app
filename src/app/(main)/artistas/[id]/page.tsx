@@ -32,7 +32,7 @@ const ArtistAlbums = () => {
   }
 
   return (
-    <div className="p-8 h-full bg-neutral-black-10 w-full">
+    <div className="p-8 h-full w-full">
       <div className="flex mb-12 items-center justify-between w-full ">
         <Button variant="text" onClick={() => router.back()} className="flex !bg-transparent !text-neutral-white-0 !p-0 items-center gap-2">
           <Icons.arrowBack />
@@ -40,7 +40,7 @@ const ArtistAlbums = () => {
         </Button>
         {!!artistImage && <Image width={64} height={64} src={artistImage} alt={artistName || ''} className="rounded-full object-cover max-w-16 max-h-16 min-w-16 min-h-16" />}
       </div>
-      <ul className="flex flex-col h-full gap-4 max-h-full">
+      <ul className="flex flex-col h-full gap-4 max-h-full pb-8">
         {data?.items.map((album: Album) => (
           <li key={album.id} className="flex items-center gap-2">
             <Image
