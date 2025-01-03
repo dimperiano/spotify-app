@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Icons } from "../components/Icons";
 import SpotifyLogo from "@/assets/SpotifyLogo.png";
-import Link from "next/link";
+import { MenuItem } from "./Sidebar/MenuItem";
 
 export const Sidebar = () => {
   return (
@@ -16,18 +16,10 @@ export const Sidebar = () => {
           className="pl-7"
         />
         <div className="flex-col flex pl-8 h-full flex-1 gap-6">
-          <Link href={"/home"} className="flex gap-6 items-center">
-            <Icons.home className="text-neutral-white-0" /> Home
-          </Link>
-          <Link href={"/artistas"} className="flex gap-6 items-center">
-            <Icons.disc className="text-neutral-white-0" /> Artistas
-          </Link>
-          <Link href={"/playlists"} className="flex gap-6 items-center">
-            <Icons.play className="text-neutral-white-0" /> PlayLists
-          </Link>
-          <Link href={"/perfil"} className="flex gap-6 items-center">
-            <Icons.user className="text-neutral-white-0" /> Perfil
-          </Link>
+        <MenuItem href="/home" icon={<Icons.home />} label="Home" />
+    <MenuItem href="/artistas" icon={<Icons.disc />} label="Artistas" />
+    <MenuItem href="/playlists" icon={<Icons.play />} label="PlayLists" />
+    <MenuItem href="/perfil" icon={<Icons.user />} label="Perfil" />
         </div>
       </div>
       <div className="flex pl-8 gap-7 items-center">

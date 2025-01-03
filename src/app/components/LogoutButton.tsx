@@ -41,7 +41,7 @@ const LogoutButton = () => {
         Sair
       </Button>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>
+        <DialogTitle align="center">
           Tem certeza de que deseja sair?
           <IconButton
           className="text-3xl !text-neutral-white-0"
@@ -58,7 +58,7 @@ const LogoutButton = () => {
           </IconButton>
         </DialogTitle>
         <DialogContent>
-          <DialogContentText>
+          <DialogContentText align="center">
             Você será desconectado da sua conta.
           </DialogContentText>
         </DialogContent>
