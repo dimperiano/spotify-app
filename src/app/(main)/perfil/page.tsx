@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import useUserProfile from "@/hooks/useUserProfile";
+import useUserProfile from "@/modules/profile/hooks/useUserProfile";
 import Image from "next/image";
 import Link from "next/link";
 import LogoutButton from "../../components/LogoutButton";

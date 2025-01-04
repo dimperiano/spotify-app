@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import useUserPlaylists from "@/hooks/useUserPlaylists";
+import useUserPlaylists from "@/modules/playlists/hooks/useUserPlaylists";
 import Image from "next/image";
 import { Playlist } from "@/types";
-import { useCreatePlaylist } from "@/hooks/useCreatePlaylist";
+import { useCreatePlaylist } from "@/modules/playlists/hooks/useCreatePlaylist";
 import {
   Dialog,
   DialogActions,

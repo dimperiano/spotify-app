@@ -2,7 +2,7 @@
 
 import React from "react"
 import { useParams, useRouter } from "next/navigation"
-import useArtistAlbums from "@/hooks/useArtistAlbums"
+import useArtistAlbums from "@/modules/artists/hooks/useArtistAlbums"
 import Image from "next/image";
 import { Album } from "@/types";
 import { Icons } from "@/app/components/Icons"

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import useTopItems from "@/hooks/useTopItems";
+import useTopItems from "@/modules/artists/hooks/useTopItems";
 import Image from "next/image";
 import Link from "next/link";
 import { Artist } from "@/types";
