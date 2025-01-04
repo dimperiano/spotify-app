@@ -1,6 +1,6 @@
 import "./globals.css"
 import { ReactNode } from "react"
-import { Rubik } from "@next/font/google"
+import { Rubik } from "next/font/google"
 
 import { ClientProviders } from "@/providers/ClientProviders"
 

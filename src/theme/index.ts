@@ -29,6 +29,14 @@ const theme = createTheme({
         },
       },
     },
+    MuiDialogActions: {
+      styleOverrides: {
+        root: {
+          display: "flex",
+          justifyContent: "center",
+        },
+      },
+    },
     MuiInput: {
       styleOverrides: {
         input: {
