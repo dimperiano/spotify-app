@@ -19,7 +19,7 @@ export const Profile = () => {
   if (error) return <WarningUnauthorizedContent />
 
   return (
-    <div className="h-full w-full flex items-center justify-center flex-col gap-6">
+    <div className="h-full w-full flex items-center justify-center flex-col gap-6 p-8">
       <Image
         className="rounded-full"
         src={data?.images[0]?.url || Placeholder}

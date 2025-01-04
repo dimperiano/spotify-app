@@ -19,7 +19,7 @@ const ArtistAlbumsHeader = () => {
         className="flex !bg-transparent !text-neutral-white-0 !p-0 items-center gap-2"
       >
         <Icons.arrowBack />
-        <h2 className="text-xl font-bold">
+        <h2 className="laptop:text-xl font-bold">
           {!!artistName ? artistName : "Voltar"}
         </h2>
       </Button>

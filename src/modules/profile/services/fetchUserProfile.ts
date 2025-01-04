@@ -10,7 +10,7 @@ export const fetchUserProfile = async (): Promise<UserProfile> => {
   const { access_token } = await tokenResponse.json()
 
   if (!access_token) {
-    throw new Error("Access token is missing")
+    window.location.href = "/"
   }
   const userProfileResponse = await fetch("https://api.spotify.com/v1/me", {
     headers: {

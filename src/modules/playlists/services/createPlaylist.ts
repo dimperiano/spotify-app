@@ -19,7 +19,7 @@ export const createPlaylist = async (
   const accessToken = tokenData.access_token
 
   if (!accessToken) {
-    throw new Error("Access token is missing")
+    window.location.href = "/"
   }
 
   const response = await fetch("https://api.spotify.com/v1/me/playlists", {

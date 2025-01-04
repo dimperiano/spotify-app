@@ -10,7 +10,7 @@ export const fetchUserPlaylists = async (
   const accessToken = tokenData.access_token
 
   if (!accessToken) {
-    throw new Error("Access token is missing")
+    window.location.href = "/"
   }
 
   const url = new URL("https://api.spotify.com/v1/me/playlists")
