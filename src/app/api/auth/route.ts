@@ -4,6 +4,8 @@ import axios from "axios"
 const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID!
 const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET!
 const REDIRECT_URI = process.env.REDIRECT_URI!
+const SPOTIFY_SCOPES =
+  "user-top-read user-library-read user-read-email user-read-private playlist-modify-public playlist-modify-private"
 
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl
@@ -11,10 +13,8 @@ export async function GET(req: NextRequest) {
   const code = searchParams.get("code")
 
   if (action === "login") {
-    const scope =
-      "user-top-read user-library-read user-read-email user-read-private playlist-modify-public playlist-modify-private"
     const authUrl = `https://accounts.spotify.com/authorize?response_type=code&client_id=${SPOTIFY_CLIENT_ID}&scope=${encodeURIComponent(
-      scope,
+      SPOTIFY_SCOPES,
     )}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}`
     return NextResponse.redirect(authUrl)
   }
