@@ -9,6 +9,12 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        tablet: "600px",
+        laptop: "1025px",
+        small: "1200px",
+        large: "1440px",
+      },
       colors: {
         neutral: {
           black: {

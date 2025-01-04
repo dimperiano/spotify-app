@@ -4,7 +4,7 @@ import ArtistAlbumsList from "@/modules/artists/components/ArtistAlbumsList"
 
 const ArtistAlbumsPage = () => {
   return (
-    <div className="p-8 h-full w-full">
+    <div className="p-4 laptop:p-8 h-full w-full">
       <ArtistAlbumsHeader />
       <ArtistAlbumsList />
     </div>

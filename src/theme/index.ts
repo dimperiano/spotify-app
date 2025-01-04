@@ -77,6 +77,7 @@ const theme = createTheme({
           textTransform: "capitalize",
           lineHeight: "20px",
           letterSpacing: "1%",
+          width: "fit-content",
         },
       },
     },

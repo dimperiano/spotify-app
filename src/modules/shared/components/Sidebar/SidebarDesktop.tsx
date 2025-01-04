@@ -1,9 +1,9 @@
 import Image from "next/image"
-import { Icons } from "../components/Icons"
+import { Icons } from "../Icons"
 import SpotifyLogo from "@/assets/SpotifyLogo.png"
-import { MenuItem } from "./Sidebar/MenuItem"
+import { MenuItem } from "./MenuItem"
 
-export const Sidebar = () => {
+export const SidebarDesktop = () => {
   return (
     <div className="flex w-full max-w-64 flex-col bg-neutral-black-0 justify-between h-screen pt-8 pb-3">
       <div className="flex gap-11 flex-col h-full">
