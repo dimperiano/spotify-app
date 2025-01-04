@@ -4,7 +4,7 @@ import React from "react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 import { Button } from "@mui/material"
-import { Icons } from "@/app/components/Icons"
+import { Icons } from "@/modules/shared/components/Icons"
 import { useArtist } from "@/modules/artists/contexts/ArtistContext"
 
 const ArtistAlbumsHeader = () => {

@@ -12,18 +12,18 @@ type MenuItemProps = {
 
 export const MenuItem: React.FC<MenuItemProps> = ({ href, icon, label }) => {
   const pathName = usePathname()
-  const isActive = pathName === href
+
+  const isActive = pathName?.startsWith(href)
 
   return (
     <Link
       href={href}
-      className={`${isActive ? "text-white" : "text-gray-500"}`}
+      className={`${isActive ? "text-white" : "text-neutral-gray-10"}`}
     >
       <div
-        className={`flex gap-4 items-center font-bold ${isActive ? "text-white" : "text-gray-500"}`}
+        className={`flex gap-4 items-center font-bold ${isActive ? "text-white" : "text-neutral-gray-10"}`}
       >
-        {" "}
-        {icon} {label}{" "}
+        {icon} {label}
       </div>
     </Link>
   )

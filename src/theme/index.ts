@@ -26,6 +26,7 @@ const theme = createTheme({
           padding: "24px 16px",
           width: "100%",
           maxWidth: "600px",
+          minHeight: "260px",
         },
       },
     },
