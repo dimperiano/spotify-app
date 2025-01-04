@@ -3,7 +3,7 @@
 import React from "react"
 import useUserProfile from "@/modules/profile/hooks/useUserProfile"
 import Image from "next/image"
-import Placeholder from "@/assets/placeholder.svg"
+import Placeholder from "@/assets/icons/placeholder.svg"
 import { WarningUnauthorizedContent } from "@/modules/shared/components/WarningUnauthorizedContent"
 import LogoutButton from "@/modules/profile/components/LogoutButton"
 

@@ -6,7 +6,7 @@ import { ThemeProvider } from "@mui/material/styles"
 import CssBaseline from "@mui/material/CssBaseline"
 import theme from "@/theme"
 import { ReactNode } from "react"
-import { ArtistProvider } from "@/context/ArtistContext"
+import { ArtistProvider } from "@/modules/artists/contexts/ArtistContext"
 
 export const ClientProviders = ({ children }: { children: ReactNode }) => {
   return (

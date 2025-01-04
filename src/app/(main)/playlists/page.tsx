@@ -14,7 +14,7 @@ import {
   IconButton,
   Input,
 } from "@mui/material"
-import Placeholder from "@/assets/placeholder.svg"
+import Placeholder from "@/assets/icons/placeholder.svg"
 import CloseIcon from "@mui/icons-material/Close"
 
 const UserPlaylists = () => {

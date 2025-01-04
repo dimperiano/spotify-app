@@ -13,24 +13,26 @@ interface ArtistProviderProps {
 }
 
 export const ArtistProvider: React.FC<ArtistProviderProps> = ({ children }) => {
-  const [artistName, setArtistName] = useState(() => {
-    return localStorage.getItem("artistName") || ""
-  })
-  const [artistImage, setArtistImage] = useState(() => {
-    return localStorage.getItem("artistImage") || ""
-  })
+  const [artistName, setArtistName] = useState<string>("")
+  const [artistImage, setArtistImage] = useState<string>("")
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedArtistName = localStorage.getItem("artistName") || ""
+      const storedArtistImage = localStorage.getItem("artistImage") || ""
+      setArtistName(storedArtistName)
+      setArtistImage(storedArtistImage)
+    }
+  }, [])
 
   const setArtist = (name: string, image: string) => {
     setArtistName(name)
     setArtistImage(image)
-    localStorage.setItem("artistName", name)
-    localStorage.setItem("artistImage", image)
+    if (typeof window !== "undefined") {
+      localStorage.setItem("artistName", name)
+      localStorage.setItem("artistImage", image)
+    }
   }
-
-  useEffect(() => {
-    localStorage.setItem("artistName", artistName)
-    localStorage.setItem("artistImage", artistImage)
-  }, [artistName, artistImage])
 
   return (
     <ArtistContext.Provider value={{ artistName, artistImage, setArtist }}>
