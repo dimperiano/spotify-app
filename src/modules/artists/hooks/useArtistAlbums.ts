@@ -1,13 +1,13 @@
-import { useQuery } from "react-query";
-import axios from "axios";
+import { useQuery } from "react-query"
+import axios from "axios"
 
 const fetchArtistAlbums = async (artistId: string) => {
-  const tokenResponse = await axios.get("/api/get-access-token");
+  const tokenResponse = await axios.get("/api/get-access-token")
 
-  const accessToken = tokenResponse.data.access_token;
+  const accessToken = tokenResponse.data.access_token
 
   if (!accessToken) {
-    throw new Error("Access token is missing");
+    throw new Error("Access token is missing")
   }
 
   const response = await axios.get(
@@ -17,10 +17,10 @@ const fetchArtistAlbums = async (artistId: string) => {
         Authorization: `Bearer ${accessToken.value}`,
       },
     },
-  );
+  )
 
-  return response.data;
-};
+  return response.data
+}
 
 const useArtistAlbums = (artistId: string) => {
   return useQuery(
@@ -30,7 +30,7 @@ const useArtistAlbums = (artistId: string) => {
       staleTime: 1000 * 60 * 5,
       refetchOnWindowFocus: false,
     },
-  );
-};
+  )
+}
 
-export default useArtistAlbums;
+export default useArtistAlbums

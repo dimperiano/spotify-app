@@ -1,13 +1,13 @@
-import "./globals.css";
-import { ReactNode } from "react";
-import { Rubik } from "@next/font/google";
+import "./globals.css"
+import { ReactNode } from "react"
+import { Rubik } from "@next/font/google"
 
-import { ClientProviders } from "@/providers/ClientProviders";
+import { ClientProviders } from "@/providers/ClientProviders"
 
 const rubik = Rubik({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-});
+})
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -20,5 +20,5 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </body>
       </ClientProviders>
     </html>
-  );
+  )
 }

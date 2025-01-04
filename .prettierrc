@@ -1,5 +1,5 @@
 {
-  "prettier.useTabs": false,
-  "prettier.tabWidth": 2,
+  "useTabs": false,
+  "tabWidth": 2,
   "semi": false
 }

@@ -1,6 +1,6 @@
-import Image from "next/image";
-import SpotifyLogo from "@/assets/SpotifyLogo.png";
-import { LoginButton } from "./components/LoginButton";
+import Image from "next/image"
+import SpotifyLogo from "@/assets/SpotifyLogo.png"
+import { LoginButton } from "./components/LoginButton"
 
 const AuthPage = () => {
   return (
@@ -17,7 +17,7 @@ const AuthPage = () => {
       </h1>
       <LoginButton />
     </div>
-  );
-};
+  )
+}
 
-export default AuthPage;
+export default AuthPage

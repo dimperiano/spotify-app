@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
 
 export default {
   content: [
@@ -21,7 +21,7 @@ export default {
           },
           gray: {
             "10": "#949EA2",
-            '20': '#D3DADD',
+            "20": "#D3DADD",
           },
         },
         accent: {
@@ -89,4 +89,4 @@ export default {
     },
   },
   plugins: [],
-} satisfies Config;
+} satisfies Config

@@ -1,20 +1,20 @@
-"use client";
+"use client"
 
-import { useQuery } from "react-query";
-import axios from "axios";
-import { ArtistResponse } from "@/types";
+import { useQuery } from "react-query"
+import axios from "axios"
+import { ArtistResponse } from "@/types"
 
 const fetchTopItems = async (
   type: "artists" | "tracks",
   timeRange: "short_term" | "medium_term" | "long_term",
   limit: number,
 ) => {
-  const tokenResponse = await axios.get("/api/get-access-token");
+  const tokenResponse = await axios.get("/api/get-access-token")
 
-  const accessToken = tokenResponse.data.access_token;
+  const accessToken = tokenResponse.data.access_token
 
   if (!accessToken) {
-    throw new Error("Access token is missing");
+    throw new Error("Access token is missing")
   }
 
   try {
@@ -29,13 +29,13 @@ const fetchTopItems = async (
           limit,
         },
       },
-    );
-    return response.data;
+    )
+    return response.data
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
-    throw new Error("Failed to fetch top items", error);
+    throw new Error("Failed to fetch top items", error)
   }
-};
+}
 
 const useTopItems = (
   type: "artists" | "tracks",
@@ -49,10 +49,10 @@ const useTopItems = (
       staleTime: 1000 * 60 * 5,
       refetchOnWindowFocus: false,
       onError: (error) => {
-        console.error("Error fetching top items:", error);
+        console.error("Error fetching top items:", error)
       },
     },
-  );
-};
+  )
+}
 
-export default useTopItems;
+export default useTopItems

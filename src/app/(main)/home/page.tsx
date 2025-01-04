@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
 const HomePage = () => {
-  return <div className="w-full h-full" />;
-};
+  return <div className="w-full h-full" />
+}
 
-export default HomePage;
+export default HomePage

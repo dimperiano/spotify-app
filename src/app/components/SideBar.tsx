@@ -1,7 +1,7 @@
-import Image from "next/image";
-import { Icons } from "../components/Icons";
-import SpotifyLogo from "@/assets/SpotifyLogo.png";
-import { MenuItem } from "./Sidebar/MenuItem";
+import Image from "next/image"
+import { Icons } from "../components/Icons"
+import SpotifyLogo from "@/assets/SpotifyLogo.png"
+import { MenuItem } from "./Sidebar/MenuItem"
 
 export const Sidebar = () => {
   return (
@@ -16,10 +16,10 @@ export const Sidebar = () => {
           className="pl-7"
         />
         <div className="flex-col flex pl-8 h-full flex-1 gap-6">
-        <MenuItem href="/home" icon={<Icons.home />} label="Home" />
-    <MenuItem href="/artistas" icon={<Icons.disc />} label="Artistas" />
-    <MenuItem href="/playlists" icon={<Icons.play />} label="PlayLists" />
-    <MenuItem href="/perfil" icon={<Icons.user />} label="Perfil" />
+          <MenuItem href="/home" icon={<Icons.home />} label="Home" />
+          <MenuItem href="/artistas" icon={<Icons.disc />} label="Artistas" />
+          <MenuItem href="/playlists" icon={<Icons.play />} label="PlayLists" />
+          <MenuItem href="/perfil" icon={<Icons.user />} label="Perfil" />
         </div>
       </div>
       <div className="flex pl-8 gap-7 items-center">
@@ -27,5 +27,5 @@ export const Sidebar = () => {
         Instalar PWA
       </div>
     </div>
-  );
-};
+  )
+}

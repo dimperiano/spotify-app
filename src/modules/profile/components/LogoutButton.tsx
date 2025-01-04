@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import React, { useState } from "react"
+import { useRouter } from "next/navigation"
 import {
   Button,
   Dialog,
@@ -10,27 +10,27 @@ import {
   DialogContentText,
   DialogTitle,
   IconButton,
-} from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import axios from "axios";
+} from "@mui/material"
+import CloseIcon from "@mui/icons-material/Close"
+import axios from "axios"
 
 const LogoutButton = () => {
-  const [open, setOpen] = useState(false);
-  const router = useRouter();
+  const [open, setOpen] = useState(false)
+  const router = useRouter()
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
 
   const handleLogout = async () => {
     try {
-      await axios.get("/api/logout");
-      router.push("/");
+      await axios.get("/api/logout")
+      router.push("/")
     } catch (error) {
-      console.error("Error during logout:", error);
+      console.error("Error during logout:", error)
     } finally {
-      handleClose();
+      handleClose()
     }
-  };
+  }
 
   return (
     <>
@@ -44,7 +44,7 @@ const LogoutButton = () => {
         <DialogTitle align="center">
           Tem certeza de que deseja sair?
           <IconButton
-          className="text-3xl !text-neutral-white-0"
+            className="text-3xl !text-neutral-white-0"
             aria-label="close"
             onClick={handleClose}
             sx={{
@@ -74,7 +74,7 @@ const LogoutButton = () => {
         </DialogActions>
       </Dialog>
     </>
-  );
-};
+  )
+}
 
-export default LogoutButton;
+export default LogoutButton
