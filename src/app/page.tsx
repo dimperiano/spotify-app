@@ -1,6 +1,6 @@
 import Image from "next/image"
 import SpotifyLogo from "@/assets/SpotifyLogo.png"
-import { LoginButton } from "@/modules/shared/components/LoginButton"
+import { LoginButton } from "@/modules/auth/components/LoginButton"
 
 const AuthPage = () => {
   return (
