@@ -1,9 +1,9 @@
 "use client"
 
 import { useSearchParams, useRouter } from "next/navigation"
-import { useEffect } from "react"
+import React, { useEffect, Suspense } from "react"
 
-export const CallbackPage = () => {
+const CallbackPageContent = () => {
   const searchParams = useSearchParams()
   const router = useRouter()
   const code = searchParams?.get("code")
@@ -27,9 +27,15 @@ export const CallbackPage = () => {
     }
   }, [code, router])
 
+  return <p>Authenticating...</p>
+}
+
+export const CallbackPage = () => {
   return (
-    <div className="flex items-center justify-center">
-      <p>Authenticating...</p>
-    </div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <div className="flex items-center justify-center">
+        <CallbackPageContent />
+      </div>
+    </Suspense>
   )
 }
