@@ -18,10 +18,10 @@ O projeto adota uma arquitetura modular, que organiza o conteúdo de cada págin
 - [x] **Listar as playlists do usuário:** Utiliza a rota `GET /me/playlists`.
 - [x] **Criar uma nova playlist:** Utiliza a rota `POST /users/{user_id}/playlists`.
 - [x] **Exibir dados do usuário:** Utiliza a rota `GET /me`.
-- [ ] **Paginação:** Implementada para listas com suporte a scroll infinito.
+- [x] **Paginação:** Implementada para listas com suporte a scroll infinito (a cada 10 itens).
 - [ ] **Funcionamento offline:** Cache local para dados essenciais.
 - [ ] **Testes unitários:** Cobertura de componentes e lógica crítica com Jest.
-- [ ] **Deploy da aplicação:** Hospedado em [URL da aplicação].
+- [x] **Deploy da aplicação:** Hospedado em https://spotify-challenge-imperiano.vercel.app
 
 ### Bônus
 
@@ -36,7 +36,6 @@ O projeto adota uma arquitetura modular, que organiza o conteúdo de cada págin
 
 - **React**: Framework para a construção da interface do usuário.
 - **React Query**: Gerenciamento de estado e cache para requisições API.
-- **Axios**: Biblioteca para chamadas HTTP.
 - **Tailwind CSS**: Framework de estilos para garantir consistência na interface.
 - **Jest e Testing Library**: Para testes unitários.
 - **Cypress**: Testes de ponta a ponta.
@@ -49,17 +48,15 @@ O projeto adota uma arquitetura modular, que organiza o conteúdo de cada págin
 ### Pré-requisitos
 
 - Node.js (versão 16 ou superior)
-- Um app criado no [Spotify Developer](https://developer.spotify.com/documentation/web-api/tutorials/getting-started#create-an-app) com Client ID e Client Secret
-- Variáveis de ambiente configuradas no arquivo `.env`:
-  - `REACT_APP_SPOTIFY_CLIENT_ID`
-  - `REACT_APP_SPOTIFY_REDIRECT_URI`
+- Crie um app no [Spotify Developer](https://developer.spotify.com/documentation/web-api/tutorials/getting-started#create-an-app) com Client ID, Client Secret e cadastre "http://localhost:3000/callback" no campo "Redirect URIs"
+- Duplique o arquivo env.example, renomeie para .env.local e preencha as variáveis
 
 ### Passos para Executar
 
 Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/spotify-challenge.git
+git clone https://github.com/dimperiano/spotify-challenge.git
 cd spotify-challenge
 ```
 
