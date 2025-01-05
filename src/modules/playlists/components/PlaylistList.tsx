@@ -1,44 +1,26 @@
 "use client"
 
-import React, { useEffect, useRef } from "react"
+import React from "react"
 import Image from "next/image"
 import { Playlist } from "@/types"
 import Placeholder from "@/assets/icons/placeholder.svg"
+import { useInfiniteScroll } from "@/modules/shared/hooks/useInfiniteScroll"
+import { CircularProgress } from "@mui/material"
 
 interface PlaylistListProps {
   playlists: Playlist[]
   fetchNextPage: () => void
   hasNextPage: boolean
+  isFetchingNextPage: boolean
 }
 
 const PlaylistList: React.FC<PlaylistListProps> = ({
   playlists,
   fetchNextPage,
   hasNextPage,
+  isFetchingNextPage,
 }) => {
-  const observer = useRef<IntersectionObserver | null>(null)
-  const lastPlaylistElementRef = useRef<HTMLDivElement | null>(null)
-
-  useEffect(() => {
-    if (observer.current) observer.current.disconnect()
-
-    observer.current = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          fetchNextPage()
-        }
-      },
-      { threshold: 1.0 },
-    )
-
-    if (lastPlaylistElementRef.current) {
-      observer.current.observe(lastPlaylistElementRef.current)
-    }
-
-    return () => {
-      if (observer.current) observer.current.disconnect()
-    }
-  }, [hasNextPage])
+  const lastPlaylistElementRef = useInfiniteScroll(fetchNextPage, hasNextPage)
 
   return (
     <>
@@ -69,7 +51,12 @@ const PlaylistList: React.FC<PlaylistListProps> = ({
           </li>
         ))}
       </ul>
-      <div ref={lastPlaylistElementRef}></div>
+      <div
+        className="w-full flex justify-center items-center mt-8"
+        ref={lastPlaylistElementRef}
+      >
+        {hasNextPage && isFetchingNextPage && <CircularProgress />}
+      </div>
     </>
   )
 }

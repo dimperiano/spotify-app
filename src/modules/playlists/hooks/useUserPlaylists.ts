@@ -3,7 +3,7 @@
 import { useInfiniteQuery } from "react-query"
 import { fetchUserPlaylists } from "@/modules/playlists/services/fetchUserPlaylists"
 
-export const useUserPlaylists = (limit: number = 5) => {
+export const useUserPlaylists = (limit: number = 10) => {
   return useInfiniteQuery(
     ["userPlaylists"],
     ({ pageParam = 0 }) => fetchUserPlaylists(limit, pageParam),
@@ -13,7 +13,7 @@ export const useUserPlaylists = (limit: number = 5) => {
         const nextOffset = offset + limit
         return nextOffset < total ? nextOffset : undefined
       },
-      staleTime: 1000 * 60 * 5,
+      staleTime: 1000 * 60 * 30,
       refetchOnWindowFocus: false,
       onError: (error) => {
         console.error("Error fetching user playlists:", error)

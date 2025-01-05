@@ -1,7 +1,7 @@
 import { PlaylistsResponse } from "@/types"
 
 export const fetchUserPlaylists = async (
-  limit: number = 5,
+  limit: number = 10,
   offset: number = 0,
 ): Promise<PlaylistsResponse> => {
   const tokenResponse = await fetch("/api/get-access-token")
