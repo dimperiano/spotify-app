@@ -5,7 +5,7 @@ import { fetchUserProfile } from "../services/fetchUserProfile"
 
 const useUserProfile = () => {
   return useQuery("userProfile", fetchUserProfile, {
-    staleTime: 1000 * 60 * 5, // 5 minutos
+    staleTime: 1000 * 60 * 5,
     refetchOnWindowFocus: false,
     onError: (error) => {
       console.error("Error fetching user profile:", error)

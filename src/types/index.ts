@@ -77,4 +77,8 @@ export type Playlist = {
 export type PlaylistsResponse = {
   items: Playlist[]
   next?: string
+  previous?: string
+  total: number
+  limit: number
+  offset: number
 }

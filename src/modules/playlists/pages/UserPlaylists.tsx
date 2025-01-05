@@ -7,7 +7,8 @@ import PlaylistList from "@/modules/playlists/components/PlaylistList"
 import CreatePlaylistDialog from "@/modules/playlists/components/CreatePlaylistDialog"
 
 export const UserPlaylistsPage = () => {
-  const { data, isLoading, error } = useUserPlaylists()
+  const { data, isLoading, error, fetchNextPage, hasNextPage } =
+    useUserPlaylists()
   const [open, setOpen] = useState(false)
 
   const handleClickOpen = () => {
@@ -38,7 +39,11 @@ export const UserPlaylistsPage = () => {
         </Button>
       </div>
 
-      <PlaylistList playlists={data?.items || []} />
+      <PlaylistList
+        playlists={data?.pages.flatMap((page) => page.items) || []}
+        fetchNextPage={fetchNextPage}
+        hasNextPage={hasNextPage ?? false}
+      />
 
       <CreatePlaylistDialog open={open} onClose={handleClose} />
     </div>
