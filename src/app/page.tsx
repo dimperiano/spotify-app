@@ -6,8 +6,8 @@ const AuthPage = () => {
   return (
     <div className="flex w-full flex-col gap-4 items-center justify-center h-screen">
       <Image
-        unoptimized
         src={SpotifyLogo}
+        priority
         alt="Spotify Logo"
         width={164}
         height={49}

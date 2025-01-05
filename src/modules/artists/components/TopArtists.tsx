@@ -12,7 +12,11 @@ export const TopArtistsPage = () => {
   )
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return (
+      <div className="w-full h-full flex items-center justify-center ">
+        <p>Carregando</p>
+      </div>
+    )
   }
 
   if (isError) {

@@ -25,8 +25,18 @@ export const UserPlaylistsPage = () => {
     setOpen(false)
   }
 
-  if (isLoading) return <p>Loading playlists...</p>
-  if (error) return <p>Error: erro</p>
+  if (isLoading)
+    return (
+      <div className="w-full h-full flex items-center justify-center ">
+        <p>Carregando</p>
+      </div>
+    )
+  if (error)
+    return (
+      <div className="w-full h-full flex items-center justify-center ">
+        <p>Error</p>
+      </div>
+    )
 
   return (
     <div className="w-full">

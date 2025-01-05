@@ -15,13 +15,13 @@ const TopArtistsClient: React.FC<TopArtistsClientProps> = ({ data }) => {
 
   return (
     <div className="p-4 w-full">
-      <div className="p-8">
+      <div className="p-4 laptop:px-8 laptop:py-4">
         <h1 className="text-[28px] font-semibold leading-8"> Top Artistas</h1>
         <p className="text-neutral-gray-20">
           Aqui você encontra seus artistas preferidos
         </p>
       </div>
-      <ul className="px-8 py-4 flex flex-col gap-4">
+      <ul className="p-4 laptop:px-8 laptop:py-4 flex flex-col gap-4">
         {data.map((artist) => (
           <li key={artist.id} className="flex items-center gap-4">
             <Link

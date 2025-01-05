@@ -14,42 +14,26 @@ export const SidebarMobile = () => {
   }
 
   return (
-    <div className="p-4 flex w-full items-center justify-between mb-6">
-      <Image
-        unoptimized
-        src={SpotifyLogo}
-        alt="Spotify Logo"
-        width={164}
-        height={49}
-        onClick={() => window.location.replace("/home")}
-      />
-      <IconButton
-        edge="start"
-        color="inherit"
-        aria-label="menu"
-        onClick={toggleDrawer(true)}
-      >
-        <MenuIcon />
-      </IconButton>
+    <div className="relative h-16">
+      <div className="px-8 fixed py-4 flex w-full items-center justify-between mb-6 bg-neutral-black-0">
+        <IconButton
+          edge="start"
+          color="inherit"
+          aria-label="menu"
+          onClick={toggleDrawer(true)}
+        >
+          <MenuIcon />
+        </IconButton>
 
-      <Drawer
-        anchor="left"
-        open={open}
-        onClose={toggleDrawer(false)}
-        PaperProps={{
-          sx: { width: "240px", bgcolor: "black" },
-        }}
-      >
-        <div className="flex flex-col h-screen pt-8 pb-3">
-          <div className="flex gap-11 flex-col">
-            <Image
-              unoptimized
-              src={SpotifyLogo}
-              alt="Spotify Logo"
-              width={164}
-              height={49}
-              className="pl-7"
-            />
+        <Drawer
+          anchor="left"
+          open={open}
+          onClose={toggleDrawer(false)}
+          PaperProps={{
+            sx: { width: "240px", bgcolor: "black" },
+          }}
+        >
+          <div className="flex flex-col h-screen pt-8 pb-3">
             <div className="flex-col flex pl-8 h-full flex-1 gap-6">
               <MenuItem
                 href="/home"
@@ -76,14 +60,22 @@ export const SidebarMobile = () => {
                 closeDrawer={() => setOpen(false)}
               />
             </div>
-          </div>
 
-          <div className="flex pl-8 gap-7 items-center mt-auto">
-            <Icons.grommetIconsInstallOptions className="text-neutral-white-0" />
-            Instalar PWA
+            <div className="flex pl-8 gap-7 items-center mt-auto">
+              <Icons.grommetIconsInstallOptions className="text-neutral-white-0" />
+              Instalar PWA
+            </div>
           </div>
-        </div>
-      </Drawer>
+        </Drawer>
+        <Image
+          priority
+          src={SpotifyLogo}
+          alt="Spotify Logo"
+          width={164}
+          height={49}
+          onClick={() => window.location.replace("/home")}
+        />
+      </div>
     </div>
   )
 }

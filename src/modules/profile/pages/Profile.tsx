@@ -13,7 +13,7 @@ export const Profile = () => {
   if (isLoading)
     return (
       <div className="h-screen w-full flex items-center justify-center">
-        <p>Loading user profile...</p>
+        <p>Loading.</p>
       </div>
     )
   if (error) return <WarningUnauthorizedContent />

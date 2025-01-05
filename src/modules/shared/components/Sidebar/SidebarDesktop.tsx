@@ -8,12 +8,11 @@ export const SidebarDesktop = () => {
     <div className="flex w-full max-w-64 flex-col bg-neutral-black-0 justify-between h-screen pt-8 pb-3">
       <div className="flex gap-11 flex-col h-full">
         <Image
-          unoptimized
+          priority
           src={SpotifyLogo}
           alt="Spotify Logo"
           width={164}
           height={49}
-          className="pl-7"
         />
         <div className="flex-col flex pl-8 h-full flex-1 gap-6">
           <MenuItem href="/home" icon={<Icons.home />} label="Home" />

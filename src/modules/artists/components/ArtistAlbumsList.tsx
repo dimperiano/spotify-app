@@ -13,7 +13,11 @@ const ArtistAlbumsList = () => {
   const { data, isLoading, isError, error } = useArtistAlbums(artistId)
 
   if (isLoading) {
-    return <div>Loading albums...</div>
+    return (
+      <div className="w-full h-full flex items-center justify-center ">
+        <p>Carregando</p>
+      </div>
+    )
   }
 
   if (isError) {
