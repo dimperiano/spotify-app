@@ -2,6 +2,7 @@
 
 import { useQuery } from "react-query"
 import { fetchTopItems } from "@/modules/artists/services/fetchTopItems"
+import { THIRTY_MINUTES_IN_MILLISECONDS } from "@/modules/shared/constants"
 
 const useTopItems = (
   type: "artists" | "tracks",
@@ -12,8 +13,8 @@ const useTopItems = (
     ["topItems", type, timeRange, limit],
     () => fetchTopItems(type, timeRange, limit),
     {
-      staleTime: 1000 * 60 * 5,
-      refetchOnWindowFocus: false,
+      staleTime: THIRTY_MINUTES_IN_MILLISECONDS,
+      refetchOnWindowFocus: true,
       onError: (error) => {
         console.error("Error fetching top items:", error)
       },
