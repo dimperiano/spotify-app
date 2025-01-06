@@ -1,6 +1,8 @@
+"use client"
+
 import React from "react"
 import ArtistAlbumsHeader from "@/modules/artists/components/ArtistAlbumsHeader"
-import ArtistAlbumsList from "@/modules/artists/components/ArtistAlbumsList"
+import { ArtistAlbumsList } from "@/modules/artists/components/ArtistAlbumsList"
 
 const ArtistAlbumsPage = () => {
   return (

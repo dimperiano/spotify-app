@@ -62,8 +62,10 @@ export type Album = {
 export type AlbumsResponse = {
   items: Album[]
   total: number
-  next: string | null
+  next?: string | null
   previous: string | null
+  limit: number
+  offset: number
 }
 
 export type Playlist = {
