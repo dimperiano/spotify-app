@@ -2,7 +2,7 @@
 
 import React, { useState } from "react"
 import { useUserPlaylists } from "@/modules/playlists/hooks/useUserPlaylists"
-import { Button } from "@mui/material"
+import { Button, CircularProgress } from "@mui/material"
 import PlaylistList from "@/modules/playlists/components/PlaylistList"
 import CreatePlaylistDialog from "@/modules/playlists/components/CreatePlaylistDialog"
 
@@ -28,7 +28,7 @@ export const UserPlaylistsPage = () => {
   if (isLoading)
     return (
       <div className="w-full h-full flex items-center justify-center ">
-        <p>Carregando</p>
+        <CircularProgress />
       </div>
     )
   if (error)

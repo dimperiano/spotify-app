@@ -14,8 +14,8 @@ export const SidebarMobile = () => {
   }
 
   return (
-    <div className="relative h-16">
-      <div className="px-8 fixed py-4 flex w-full items-center justify-between mb-6 bg-neutral-black-0">
+    <div className="relative h-24">
+      <div className="px-8 fixed z-50 py-4 flex w-full items-center justify-between mb-6 bg-neutral-black-0">
         <IconButton
           edge="start"
           color="inherit"

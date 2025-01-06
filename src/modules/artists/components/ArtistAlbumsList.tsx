@@ -6,6 +6,7 @@ import Image from "next/image"
 import useArtistAlbums from "@/modules/artists/hooks/useArtistAlbums"
 import Placeholder from "@/assets/icons/placeholder.svg"
 import { Album } from "@/types"
+import { CircularProgress } from "@mui/material"
 
 const ArtistAlbumsList = () => {
   const params = useParams<{ id: string }>()
@@ -15,7 +16,7 @@ const ArtistAlbumsList = () => {
   if (isLoading) {
     return (
       <div className="w-full h-full flex items-center justify-center ">
-        <p>Carregando</p>
+        <CircularProgress />
       </div>
     )
   }

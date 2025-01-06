@@ -6,6 +6,7 @@ import Image from "next/image"
 import Placeholder from "@/assets/icons/placeholder.svg"
 import { WarningUnauthorizedContent } from "@/modules/shared/components/WarningUnauthorizedContent"
 import LogoutButton from "@/modules/profile/components/LogoutButton"
+import { CircularProgress } from "@mui/material"
 
 export const Profile = () => {
   const { data, isLoading, error } = useUserProfile()
@@ -13,7 +14,7 @@ export const Profile = () => {
   if (isLoading)
     return (
       <div className="h-screen w-full flex items-center justify-center">
-        <p>Loading.</p>
+        <CircularProgress />
       </div>
     )
   if (error) return <WarningUnauthorizedContent />

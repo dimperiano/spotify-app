@@ -1,5 +1,6 @@
 "use client"
 
+import { CircularProgress } from "@mui/material"
 import { useSearchParams, useRouter } from "next/navigation"
 import React, { useEffect, Suspense } from "react"
 
@@ -27,12 +28,22 @@ const CallbackPageContent = () => {
     }
   }, [code, router])
 
-  return <p>Authenticating...</p>
+  return (
+    <div className="w-full h-screen flex items-center justify-center gap-4 ">
+      <CircularProgress /> <p>Authenticating...</p>
+    </div>
+  )
 }
 
 export const CallbackPage = () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense
+      fallback={
+        <div className="w-full h-full flex items-center justify-center ">
+          <CircularProgress />
+        </div>
+      }
+    >
       <div className="flex items-center justify-center">
         <CallbackPageContent />
       </div>

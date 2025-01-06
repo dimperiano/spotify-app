@@ -14,7 +14,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <ClientProviders>
         <body
-          className={`text-neutral-white-0 bg-neutral-black-10 ${rubik.className}`}
+          className={`text-neutral-white-0 bg-neutral-black-10 h-screen ${rubik.className}`}
         >
           {children}
         </body>
