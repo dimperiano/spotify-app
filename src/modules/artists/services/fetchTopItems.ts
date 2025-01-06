@@ -4,6 +4,7 @@ export const fetchTopItems = async (
   type: "artists" | "tracks",
   timeRange: "short_term" | "medium_term" | "long_term",
   limit: number,
+  offset: number = 0,
 ): Promise<ArtistResponse> => {
   const tokenResponse = await fetch("/api/get-access-token")
   const tokenData = await tokenResponse.json()
@@ -17,6 +18,7 @@ export const fetchTopItems = async (
   const url = new URL(`https://api.spotify.com/v1/me/top/${type}`)
   url.searchParams.append("time_range", timeRange)
   url.searchParams.append("limit", limit.toString())
+  url.searchParams.append("offset", offset.toString())
 
   const response = await fetch(url.toString(), {
     headers: {

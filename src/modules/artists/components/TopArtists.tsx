@@ -2,19 +2,26 @@
 
 import React from "react"
 import TopArtistsClient from "@/modules/artists/components/TopArtistsClient"
-import useTopItems from "@/modules/artists/hooks/useTopItems"
 import { CircularProgress } from "@mui/material"
+import { useInfiniteScroll } from "@/modules/shared/hooks/useInfiniteScroll"
+import { useTopItems } from "@/modules/artists/hooks/useTopItems"
 
 export const TopArtistsPage = () => {
-  const { data, isLoading, isError, error } = useTopItems(
-    "artists",
-    "medium_term",
-    10,
-  )
+  const {
+    data,
+    isLoading,
+    isError,
+    error,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+  } = useTopItems("artists", "medium_term", 10)
+
+  const lastElementRef = useInfiniteScroll(fetchNextPage, !!hasNextPage)
 
   if (isLoading) {
     return (
-      <div className="w-full h-full flex items-center justify-center ">
+      <div className="w-full h-full flex items-center justify-center">
         <CircularProgress />
       </div>
     )
@@ -29,5 +36,17 @@ export const TopArtistsPage = () => {
     )
   }
 
-  return <TopArtistsClient data={data?.items ?? []} />
+  return (
+    <div className="p-4 w-full">
+      <TopArtistsClient
+        data={data?.pages.flatMap((page) => page.items) ?? []}
+      />
+      <div
+        className="flex justify-center items-center mt-8"
+        ref={lastElementRef}
+      >
+        {isFetchingNextPage && <CircularProgress />}
+      </div>
+    </div>
+  )
 }

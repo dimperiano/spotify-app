@@ -46,6 +46,8 @@ export type Artist = {
 
 export type ArtistResponse = {
   items: Artist[]
+  offset: number
+  total: number
 }
 
 export type Album = {
