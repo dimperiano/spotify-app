@@ -3,8 +3,8 @@
 import React, { useState } from "react"
 import { useUserPlaylists } from "@/modules/playlists/hooks/useUserPlaylists"
 import { Button, CircularProgress } from "@mui/material"
-import PlaylistList from "@/modules/playlists/components/PlaylistList"
-import CreatePlaylistDialog from "@/modules/playlists/components/CreatePlaylistDialog"
+import { PlaylistList } from "@/modules/playlists/components/PlaylistList"
+import { CreatePlaylistDialog } from "@/modules/playlists/components/CreatePlaylistDialog"
 
 export const UserPlaylistsPage = () => {
   const {

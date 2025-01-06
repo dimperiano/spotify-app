@@ -16,7 +16,7 @@ interface CreatePlaylistDialogProps {
   onClose: () => void
 }
 
-const CreatePlaylistDialog: React.FC<CreatePlaylistDialogProps> = ({
+export const CreatePlaylistDialog: React.FC<CreatePlaylistDialogProps> = ({
   open,
   onClose,
 }) => {
@@ -82,5 +82,3 @@ const CreatePlaylistDialog: React.FC<CreatePlaylistDialogProps> = ({
     </Dialog>
   )
 }
-
-export default CreatePlaylistDialog

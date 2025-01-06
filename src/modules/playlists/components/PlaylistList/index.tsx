@@ -14,7 +14,7 @@ interface PlaylistListProps {
   isFetchingNextPage: boolean
 }
 
-const PlaylistList: React.FC<PlaylistListProps> = ({
+export const PlaylistList: React.FC<PlaylistListProps> = ({
   playlists,
   fetchNextPage,
   hasNextPage,
@@ -60,5 +60,3 @@ const PlaylistList: React.FC<PlaylistListProps> = ({
     </>
   )
 }
-
-export default PlaylistList
