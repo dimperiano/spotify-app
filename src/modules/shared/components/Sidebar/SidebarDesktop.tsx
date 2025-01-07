@@ -27,7 +27,7 @@ export const SidebarDesktop = () => {
             <MenuItem href="/perfil" icon={<Icons.user />} label="Perfil" />
           </div>
         </div>
-        <div className="flex pl-8 gap-7 items-center">
+        <div className="flex pl-8 gap-7 items-center cursor-not-allowed">
           <Icons.grommetIconsInstallOptions className="text-neutral-white-0" />{" "}
           Instalar PWA
         </div>

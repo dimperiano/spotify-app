@@ -61,7 +61,7 @@ export const SidebarMobile = () => {
               />
             </div>
 
-            <div className="flex pl-8 gap-7 items-center mt-auto">
+            <div className="flex pl-8 gap-7 items-center mt-auto cursor-not-allowed">
               <Icons.grommetIconsInstallOptions className="text-neutral-white-0" />
               Instalar PWA
             </div>

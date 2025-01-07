@@ -9,7 +9,7 @@ const HomePage = async () => {
     redirect("/")
   }
 
-  return <div className="w-full h-full">Hello World</div>
+  return <div className="w-full h-full"></div>
 }
 
 export default HomePage
