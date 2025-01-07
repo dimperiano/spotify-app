@@ -8,29 +8,28 @@ A aplicação foi construída utilizando React, Next.js, Tailwind CSS, React Que
 
 O projeto adota uma arquitetura modular, que organiza o conteúdo de cada página do site em módulos independentes. Essa abordagem simplifica a manutenção e facilita o trabalho em equipe, permitindo que diferentes grupos de desenvolvedores sejam responsáveis por evoluir módulos específicos de forma eficiente e organizada.
 
-## Funcionalidades
+## Requisitos
 
-### Requisitos Obrigatórios
+### Requisitos obrigatórios
 
-- [x] **Autenticação via Spotify:** Integração com o fluxo de autenticação OAuth 2.0.
-- [x] **Listar artistas que mais ouvimos:** Utiliza a rota `GET /me/top/artists`.
-- [x] **Listar álbuns de um artista:** Utiliza a rota `GET /artists/{id}/albums`.
-- [x] **Listar as playlists do usuário:** Utiliza a rota `GET /me/playlists`.
-- [x] **Criar uma nova playlist:** Utiliza a rota `POST /users/{user_id}/playlists`.
-- [x] **Exibir dados do usuário:** Utiliza a rota `GET /me`.
-- [x] **Paginação:** Implementada para listas com suporte a scroll infinito (a cada 10 itens).
-- [ ] **Funcionamento offline:** Cache local para dados essenciais.
-- [ ] **Testes unitários:** Cobertura de componentes e lógica crítica com Jest.
-- [x] **Deploy da aplicação:** Hospedado em https://spotify-challenge-imperiano.vercel.app
+- [x] Segmentação de commits
+- [x] Lint
+- [x] Autenticação via Spotify
+- [x] Listar artistas
+- [x] Listar álbuns de um artista
+- [x] Utilizar paginação (scroll infinito ou não) | Scroll infinito a cada 10 itens
+- [ ] Funcionamento offline
+- [x] Testes unitários
+- [x] Deploy da aplicação | Hospedado em https://spotify-challenge-imperiano.vercel.app
 
 ### Bônus
 
-- [ ] **Testes E2E:** Automação implementada com Cypress.
-- [ ] **Integração com Sentry:** Monitoramento de erros e desempenho.
-- [ ] **CI/CD:** Pipeline configurado no GitHub Actions.
-- [x] **Responsividade:** Interface otimizada para desktop, tablets e smartphones.
-- [ ] **Qualidade de código:** Configuração com SonarQube para análise estática.
-- [ ] **PWA:** Aplicação configurada como Progressive Web App.
+- [ ] Testes E2E
+- [ ] Integração com Sentry
+- [ ] CI/CD
+- [x] Responsividade (celular e tablet)
+- [ ] Qualidade de código (Sonarqube)
+- [ ] PWA
 
 ## Tecnologias Utilizadas
 
