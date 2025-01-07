@@ -1,7 +1,7 @@
 import React from "react"
 import { render, screen, fireEvent } from "@testing-library/react"
 import { QueryClient, QueryClientProvider } from "react-query"
-import { UserPlaylistsPage } from "."
+import { UserPlaylistsPage } from "../UserPlaylists"
 import { useUserPlaylists } from "@/modules/playlists/hooks/useUserPlaylists"
 
 jest.mock("@/modules/playlists/hooks/useUserPlaylists")

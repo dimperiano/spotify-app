@@ -1,7 +1,7 @@
 import React from "react"
 import { render, screen, fireEvent } from "@testing-library/react"
 import "@testing-library/jest-dom"
-import { CreatePlaylistDialog } from "."
+import { CreatePlaylistDialog } from "../CreatePlaylistDialog"
 import { useCreatePlaylist } from "@/modules/playlists/hooks/useCreatePlaylist"
 
 jest.mock("@/modules/playlists/hooks/useCreatePlaylist")

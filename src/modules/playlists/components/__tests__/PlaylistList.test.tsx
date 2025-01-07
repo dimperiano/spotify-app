@@ -1,7 +1,7 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
 import "@testing-library/jest-dom"
-import { PlaylistList } from "."
+import { PlaylistList } from "../PlaylistList"
 import { useInfiniteScroll } from "@/modules/shared/hooks/useInfiniteScroll"
 import { Playlist } from "@/types"
 
