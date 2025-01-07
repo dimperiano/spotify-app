@@ -14,7 +14,7 @@ export const WarningUnauthorizedContent = () => {
           Não foi possível carregar informações do usuário
         </h1>
         <p>
-          Esse app está no modo de desenvolvimento por isso o Spotify não
+          Esse app está no modo de desenvolvimento, por isso o Spotify não
           permite que usuários que não estejam cadastrados no painel dessa
           aplicação acessem suas informações{" "}
         </p>

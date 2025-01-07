@@ -22,6 +22,10 @@ O projeto adota uma arquitetura modular, que organiza o conteúdo de cada págin
 - [x] Testes unitários
 - [x] Deploy da aplicação | Hospedado em https://spotify-challenge-imperiano.vercel.app
 
+> Esse app está no modo de desenvolvimento, por isso é necessário que os usuários estejam cadastrados no painel dessa aplicação no Spotify para conseguir logar na aplicação em produção.
+>
+> Você precisa solicitar permissão através do email [imperiano.cn@gmail.com](mailto:imperiano.cn@gmail.com) informando o e-mail da sua conta do Spotify para eu cadastrar no painel do app manualmente. Para mais informações sobre as limitações do modo de desenvolvedor acesse a [documentação do Spotify](https://developer.spotify.com/documentation/web-api/concepts/quota-modes).
+
 ### Bônus
 
 - [ ] Testes E2E
