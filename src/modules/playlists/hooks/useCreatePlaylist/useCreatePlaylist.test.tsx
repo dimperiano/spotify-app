@@ -1,4 +1,4 @@
-import { renderHook, act } from "@testing-library/react-hooks"
+import { renderHook, act, waitFor } from "@testing-library/react"
 import { useCreatePlaylist } from "@/modules/playlists/hooks/useCreatePlaylist"
 import { queryClient } from "@/services/queryClient"
 import { createPlaylist } from "@/modules/playlists/services/createPlaylist"
@@ -22,7 +22,7 @@ describe("useCreatePlaylist", () => {
     ;(createPlaylist as jest.Mock).mockResolvedValueOnce({ data: "success" })
     jest.spyOn(queryClient, "invalidateQueries")
 
-    const { result, waitFor } = renderHook(() => useCreatePlaylist(), {
+    const { result } = renderHook(() => useCreatePlaylist(), {
       wrapper,
     })
 
@@ -46,7 +46,7 @@ describe("useCreatePlaylist", () => {
     const error = new Error("Failed to create playlist")
     ;(createPlaylist as jest.Mock).mockRejectedValueOnce(error)
 
-    const { result, waitFor } = renderHook(() => useCreatePlaylist(), {
+    const { result } = renderHook(() => useCreatePlaylist(), {
       wrapper,
     })
 
